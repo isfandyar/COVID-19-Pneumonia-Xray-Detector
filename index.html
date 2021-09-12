@@ -1,15 +1,31 @@
-<!doctype html> <html> <head>
-    <title>cov-ID - REVOLUTIONIZING COVID-19 DIAGNOSIS </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> </head> <body style="background-color:grey"> <div id="maintext" 
-style="position:absolute; margin:auto; width:700px; height:200px; text-align:center; top:0; bottom: 0; left: 0; right: 0;">
-<h1 class="text-dark mb-2"> cov-ID - REVOLUTIONIZING COVID-19 DIAGNOSIS  </h1>
-  <h2 class="text-dark mb-2"> Upload your X-Ray image to be classified! </h2>
-  <h6 class="text-dark mb-5"> Made by team cov-ID in MedHacks 2021</h6>
-  <form method=post enctype=multipart/form-data>
-     <p class="text-light">
-        <input type=file name=file>
-        <input type=submit value=Upload>
-     </p>
-  </form> </div> </body>
-</html>
+{% extends "base.html" %} {% block content %}
+
+<h2>Image Classifier</h2>
+
+<div>
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+        <label for="imageUpload" class="upload-label">
+            Choose...
+        </label>
+        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+    </form>
+
+    <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+        </div>
+    </div>
+
+    <div class="loader" style="display:none;"></div>
+
+    <h3 id="result">
+        <span> </span>
+    </h3>
+
+</div>
+
+{% endblock %}
