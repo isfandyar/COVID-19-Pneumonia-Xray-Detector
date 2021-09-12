@@ -34,7 +34,7 @@ print('Model loaded. Check http://127.0.0.1:5000/')
 
 
 # Model saved with Keras model.save()
-MODEL_PATH = 'models/your_model.h5'
+MODEL_PATH = 'CNN_model_3.h5'
 
 # Load your own trained model
 # model = load_model(MODEL_PATH)
